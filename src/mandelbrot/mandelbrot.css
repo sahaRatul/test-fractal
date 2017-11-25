@@ -1,0 +1,14 @@
+.mandelbrot-container {
+    background-color: black;
+}
+
+.mandelbrot-container .mandelbrot-wrapper {
+    overflow:hidden;
+    overflow-y:hidden;
+    height: 100vh;
+}
+
+canvas {
+    height: 100%;
+    overflow-y:hidden
+}
