@@ -19,7 +19,8 @@ class App extends Component {/**
         return ({
             magnFactor: magnFactor,
             panX: panX,
-            panY: panY
+            panY: panY,
+            hue: Math.floor(Math.random() * 360)
         });
     }
 
@@ -28,7 +29,7 @@ class App extends Component {/**
         return (
             <div className="App">
                 <Mandelbrot
-                    magnificationFactor={values.magnFactor} panX={values.panX} panY={values.panY} />
+                    magnificationFactor={values.magnFactor} panX={values.panX} panY={values.panY} hue={values.hue} />
             </div>
         );
     }
