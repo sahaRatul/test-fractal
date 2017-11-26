@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import Mandelbrot from './mandelbrot/mandelbrot'
+import Mandelbrot from './mandelbrot/mandelbrot';
+//import PropTypes from 'prop-types';
 
-class App extends Component {
+class App extends Component {/**
+     * constructor function for the App component where the initial state and props are defined.
+     * @param  {object} - props - initial props for the App component.
+     * @return {object} - returns the App component instance.
+     */
     constructor(props) {
         super(props);
         this.generateRandomMagnification = this.generateRandomMagnification.bind(this);
@@ -20,7 +25,6 @@ class App extends Component {
 
     render() {
         let values = this.generateRandomMagnification();
-        console.log(values);
         return (
             <div className="App">
                 <Mandelbrot
@@ -29,5 +33,9 @@ class App extends Component {
         );
     }
 }
+
+App.propTypes = {
+    //children: PropTypes.object.isRequired
+};
 
 export default App;

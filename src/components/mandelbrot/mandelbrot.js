@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './mandelbrot.css'
+import './mandelbrot.scss';
 
 class Mandelbrot extends Component {
     constructor(props) {
@@ -86,6 +86,6 @@ Mandelbrot.defaultProps = {
     panX: 0.5,
     panY: 0.5,
     width: 1920
-}
+};
 
 export default Mandelbrot;

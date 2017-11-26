@@ -1,8 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { BrowserRouter, Route } from 'react-router-dom';
+//import configureStore from './store/configureStore';
+import App from './components/App';
+require('./favicon.ico'); // Tell webpack to load favicon.ico
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import './assets/styles/styles.scss';
+
+//const store = configureStore();
+
+ReactDOM.render((
+    <BrowserRouter>
+        <Route path="/" component={App} />
+    </BrowserRouter>
+),
+    document.getElementById('app')
+);
