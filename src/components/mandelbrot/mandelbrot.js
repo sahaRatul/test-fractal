@@ -7,6 +7,11 @@ import './mandelbrot.scss';
 class Mandelbrot extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            showCanvas: false
+        };
+
         this.worker = new Worker();
     }
 
@@ -14,14 +19,20 @@ class Mandelbrot extends React.Component {
         this.worker.addEventListener('message', (event) => {
             let myCanvas = document.getElementById("mandelbrot");
             let ctx = myCanvas.getContext("2d");
-            for (let y = 0; y < myCanvas.height; y++) {
-                let row = y * myCanvas.width;
 
-                for (let x = 0; x < myCanvas.width; x++) {
-                    ctx.fillStyle = event.data.pixeldata[row + x];
-                    ctx.fillRect(x, y, 1, 1);
-                }
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, myCanvas.width, myCanvas.height);
+
+            for (let i = 0; i < event.data.count; i++) {
+                ctx.fillStyle = event.data.pixeldata[i].color;
+                ctx.fillRect(event.data.pixeldata[i].x, event.data.pixeldata[i].y, 1, 1);
             }
+
+            //console.log('painted canvas');
+            
+            this.setState({
+                showCanvas: true
+            });
         });
 
         let myCanvas = document.getElementById("mandelbrot");

@@ -8,7 +8,11 @@
     height: 100vh;
 }
 
-canvas {
+.mandelbrot-container .mandelbrot-wrapper canvas {
     height: 100%;
-    overflow-y:hidden
+    overflow-y:hidden;
+}
+
+.mandelbrot-container .mandelbrot-wrapper .invisible {
+    display: none;
 }
